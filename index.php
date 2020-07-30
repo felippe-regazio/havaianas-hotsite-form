@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Havaianas - Fale com a Lana</title>
+
+  <link rel="stylesheet" href="vendor/normalize-css/normalize.css">
+  <link rel="stylesheet" href="vendor/swiper/swiper-bundle.min.css">
+  <link rel="stylesheet" href="vendor/milligram/dist/milligram.min.css">
+  <link rel="stylesheet" href="dist/main.css">
+
+  <?php
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+  ?>
+</head>
+<body>
+  
+  <header>
+		<div class="container">
+			<div class="logo">
+				<a href="https://www.havaianas.com.br/" target="_blank">
+					<img src="img/logo-havaianas.svg">
+					<span class="logo-bg"></span>
+				</a>
+			</div>
+		</div>
+  </header>
+    
+  <form id="main-form" action="/send.php" method="POST" enctype="multipart/form-data">
+    
+    <?php require './steps/helpers/utils.php' ?>
+
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <?php
+
+          require './steps/getCPF.php';
+          require './steps/getEmail.php';
+          require './steps/getName.php';
+          require './steps/getGender.php';
+          require './steps/getBirth.php';
+          require './steps/getCEP.php';
+          require './steps/getStreet.php';
+          require './steps/getHouseN.php';
+          require './steps/getComplement.php';
+          require './steps/getCity.php';
+          require './steps/getRegion.php';
+          require './steps/getCellphone.php';
+          require './steps/getExtraContact.php';
+          
+          require './steps/whichProduct.php';
+          require './steps/getProductType.php';
+          require './steps/getProductLine.php';
+          require './steps/whatHappened.php';
+          require './steps/getPurchaseDate.php';
+          require './steps/getProductSize.php';
+          require './steps/showTerms.php';
+          require './steps/showOrientation.php';
+          require './steps/showShoeOrientation.php';
+          require './steps/uploadImages.php';
+          require './steps/allDone.php';
+
+          ?>
+      </div>
+    </div>
+
+    <script src="vendor/inputmask/inputmask.js"></script>
+    <script src="vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="dist/main.js"></script>
+  </form>
+</body>
+</html>
