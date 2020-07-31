@@ -29,7 +29,7 @@
 		</div>
   </header>
     
-  <form id="main-form" action="/send.php" method="POST" enctype="multipart/form-data">
+  <form id="main-form" action="send.php" method="POST" enctype="multipart/form-data">
     
     <?php require './steps/helpers/utils.php' ?>
 
@@ -55,6 +55,7 @@
           require './steps/showOrientation.php';
           require './steps/showShoeOrientation.php';
           require './steps/uploadImages.php';
+          
           require './steps/allDone.php';
 
           ?>

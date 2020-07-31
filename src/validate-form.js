@@ -138,8 +138,11 @@ function generateFormResume (targetElement = '#form-resume') {
         "region": "Estado",
         "cellphone": "Celular",
         "extra-contact": "Contato",
-        "purchase-date": "Data de Compra",
+        "which-product": "Produto",
+        "product-type": "Tipo do Produto",
+        "product-line": "Linha do Produto",
         "product-size": "Tamanho",
+        "purchase-date": "Data de Compra",
     };
 
     document.querySelectorAll(query).forEach(input => {
