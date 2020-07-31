@@ -50,6 +50,7 @@
           require './steps/getProductLine.php';
           require './steps/whatHappened.php';
           require './steps/getProductInfo.php';
+          require './steps/formResume.php';
           require './steps/showTerms.php';
           require './steps/showOrientation.php';
           require './steps/showShoeOrientation.php';

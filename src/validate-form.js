@@ -90,6 +90,13 @@ function validateForm (holder) {
         }
     });
 
+    holder.querySelectorAll('[type="radio"], [type="checkbox"]').forEach(input => {
+        if (!holder.querySelector(':checked')) {
+            errors.push('Uma opção deve ser selecionada');
+            input.classList.add('has-error');
+        }
+    });
+
     if (errors.length) {
         new Set(errors).forEach(error => {
             toast(error);
@@ -101,8 +108,61 @@ function validateForm (holder) {
     return true;
 }
 
+function clearErrors () {
+    document.querySelectorAll('.has-error').forEach(el => el.classList.remove('has-error'));
+}
+
+function generateFormResume (targetElement = '#form-resume') {
+    let result = "";
+    targetElement = document.querySelector(targetElement);
+
+    const query = [
+        '.swiper-slide input:not([type="radio"]):not([type="file"])',
+        '.swiper-slide select',
+        '.swiper-slider textarea',
+        '.swiper-slide input:checked',
+    ].join(', ');
+
+    const dictionary = {
+        "name": "Nome",
+        "cpf": "CPF",
+        "email": "E-Mail",
+        "gender": "Gênero",
+        "birth": "Data de Nascimento",
+        "cep": "CEP",
+        "street": "Rua",
+        "neighborhood": "Bairro",
+        "house-number": "Nº",
+        "complement": "Complemento",
+        "city": "Cidade",
+        "region": "Estado",
+        "cellphone": "Celular",
+        "extra-contact": "Contato",
+        "purchase-date": "Data de Compra",
+        "product-size": "Tamanho",
+    };
+
+    document.querySelectorAll(query).forEach(input => {
+        result += `<label>${dictionary[input.name]}</label> <p>${input.value || 'N/A'}</p>`;
+    });
+
+    targetElement.innerHTML = result;
+    
+    return result;
+}
+
 document.querySelectorAll('input, textarea, select').forEach(input => {
     input.addEventListener('focus', e => {
         input.classList.remove('has-error');
+    });
+
+    input.addEventListener('input', e => {
+        input.classList.remove('has-error');
+    });
+});
+
+document.querySelectorAll('[type="radio"].has-error, [type="checkbox"], label').forEach(input => {
+    input.addEventListener('click', e => {
+        clearErrors();
     });
 });

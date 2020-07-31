@@ -3,7 +3,7 @@
     <?php ianaSay("Entenda como é feita a análise do produto:"); ?>
     
     <div class="choices">
-      <strong>POLÍTICA DE TROCA</strong>
+      <p><strong>POLÍTICA DE TROCA</strong></p>
 
       <p>• Você deve enviar as fotos do produto com defeito, conforme as orientações que iremos passar.</p>
       <p>• Se não conseguirmos chegar a uma conclusão através das fotos, vamos pedir para você enviar o produto para analisarmos melhor.</p>

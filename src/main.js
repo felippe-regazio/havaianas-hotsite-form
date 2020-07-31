@@ -6,8 +6,16 @@
     preventInteractionOnTransition: true,
     on: {
       slideChangeTransitionEnd: sw => {
-        const input = swiper.slides[swiper.activeIndex].querySelector('input');
-        if (input) input.focus();
+        const slide = swiper.slides[swiper.activeIndex];
+        const input = slide.querySelector('input');
+        
+        if (slide.id === 'render-resume') {
+          generateFormResume();
+        }
+
+        if (input) {
+          input.focus();
+        }
       }
     } 
   });
@@ -78,7 +86,7 @@
 
   document.querySelectorAll('[data-cep-search]').forEach(input => {
     input.addEventListener('blur', e => {
-      if (!input.value.trim().length && !window.fetch) {
+      if (!input.value.trim().length || !window.fetch) {
         return false;
       }
 
@@ -88,7 +96,8 @@
       fetch(`https://viacep.com.br/ws/${input.value}/json/unicode/`)
         .then(val => val.json())
         .then(result => {
-          console.log(result);
+          clearErrors();
+
           document.querySelector('[name="street"]').value = result.logradouro || '';
           document.querySelector('[name="complement"]').value = result.complemento || '';
           document.querySelector('[name="neighborhood"]').value = result.bairro || '';
