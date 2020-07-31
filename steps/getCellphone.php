@@ -4,7 +4,10 @@
     
     <div class="choices">
       <label for="name">Seu celular</label>
-      <input type="text" name="cellphone" autocomplete="off" required/>
+      <input type="text" name="cellphone" autocomplete="off" required minlength="10"/>
+
+      <label for="name">Número de contato secundário</label>
+      <input type="text" autocomplete="off" name="extra-contact"/>      
     </div>
 
     <div class="controls">

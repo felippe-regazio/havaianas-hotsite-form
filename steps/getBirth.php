@@ -4,7 +4,7 @@
     
     <div class="choices">
       <label for="name">Data de nascimento</label>
-      <input type="text" name="birth" autocomplete="off" required/>
+      <input type="text" name="birth" autocomplete="off" minlength="8" required/>
     </div>
 
     <div class="controls">

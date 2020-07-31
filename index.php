@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Havaianas - Fale com a Lana</title>
+  <title>Havaianas - Fale com a Iana</title>
 
   <link rel="stylesheet" href="vendor/normalize-css/normalize.css">
   <link rel="stylesheet" href="vendor/swiper/swiper-bundle.min.css">
@@ -37,26 +37,19 @@
       <div class="swiper-wrapper">
         <?php
 
-          require './steps/getCPF.php';
+          require './steps/getBasics.php';
           require './steps/getEmail.php';
-          require './steps/getName.php';
           require './steps/getGender.php';
           require './steps/getBirth.php';
-          require './steps/getCEP.php';
-          require './steps/getStreet.php';
-          require './steps/getHouseN.php';
-          require './steps/getComplement.php';
-          require './steps/getCity.php';
+          require './steps/getAddress.php';
           require './steps/getRegion.php';
           require './steps/getCellphone.php';
-          require './steps/getExtraContact.php';
           
           require './steps/whichProduct.php';
           require './steps/getProductType.php';
           require './steps/getProductLine.php';
           require './steps/whatHappened.php';
-          require './steps/getPurchaseDate.php';
-          require './steps/getProductSize.php';
+          require './steps/getProductInfo.php';
           require './steps/showTerms.php';
           require './steps/showOrientation.php';
           require './steps/showShoeOrientation.php';
@@ -69,6 +62,7 @@
 
     <script src="vendor/inputmask/inputmask.js"></script>
     <script src="vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="dist/validate-form.js"></script>
     <script src="dist/main.js"></script>
   </form>
 </body>

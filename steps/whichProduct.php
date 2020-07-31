@@ -6,8 +6,8 @@
       <label for="name">Qual o produto?</label>
       
       <label>
-        <input type="radio" name="which-product" value="Chinelo/Sandária" required>
-        Chinelo/Sandária
+        <input type="radio" name="which-product" value="Chinelo/Sandália" required>
+        Chinelo/Sandália
       </label>
 
       <label>

@@ -31,16 +31,15 @@
     el.addEventListener('click', e => {
       e.preventDefault();
       
-      const stepInputs = swiper.slides[swiper.activeIndex].querySelectorAll('input, textarea');
+      const currentSlide = swiper.slides[swiper.activeIndex];
+      const stepInputs = currentSlide.querySelectorAll('input, textarea');
 
       if (!stepInputs.length) {
         return swiper.slideNext();
       } else {
-        stepInputs.forEach(input => {
-          input.blur();
-          const stepValid = input.checkValidity();
-          stepValid ? swiper.slideNext() : form.reportValidity();        
-        });
+        if (validateForm(currentSlide)) {
+          swiper.slideNext();
+        }
       }
     });
   });
@@ -77,12 +76,45 @@
     });
   });
 
+  document.querySelectorAll('[data-cep-search]').forEach(input => {
+    input.addEventListener('blur', e => {
+      if (!input.value.trim().length && !window.fetch) {
+        return false;
+      }
+
+      input.parentElement.parentElement.style.opacity = '0.5';
+      input.parentElement.parentElement.style.pointerEvents = 'none';
+
+      fetch(`https://viacep.com.br/ws/${input.value}/json/unicode/`)
+        .then(val => val.json())
+        .then(result => {
+          console.log(result);
+          document.querySelector('[name="street"]').value = result.logradouro || '';
+          document.querySelector('[name="complement"]').value = result.complemento || '';
+          document.querySelector('[name="neighborhood"]').value = result.bairro || '';
+          document.querySelector('[name="city"]').value = result.localidade || '';
+          document.querySelector('[name="region"]').value = result.uf || '';
+
+          if (!result.logradouro && !result.bairro && !result.cidade && !result.uf) {
+            toast('Cep não encontrado automaticamente, por favor, preencha manualmente');
+          }
+        })
+        .catch(() => {
+          toast('Cep não encontrado automaticamente, por favor, preencha manualmente');
+        })
+        .finally(() => {
+          input.parentElement.parentElement.style.opacity = '1';
+          input.parentElement.parentElement.style.pointerEvents = 'initial';
+        });
+    });
+  })  
+
   // ------------------------------------------------------------
 
   Inputmask({ mask: "999.999.999-9[9]", autoUnmask: true }).mask('[name="cpf"]');
-  Inputmask({ mask: "99/99/9999" }).mask('[name="birth"]');
-  Inputmask({ mask: "99/99/9999" }).mask('[name="purchase-date"]');
-  Inputmask({ mask: "99999-999" }).mask('[name="cep"]');
-  Inputmask({ mask: "(99) [9]9999-9999", jitMasking: true }).mask('[name="cellphone"]');
-  Inputmask({ mask: "(99) [9]9999-9999", jitMasking: true }).mask('[name="extra-contact"]');
+  Inputmask({ mask: "99/99/9999", autoUnmask: true }).mask('[name="birth"]');
+  Inputmask({ mask: "99/99/9999", autoUnmask: true }).mask('[name="purchase-date"]');
+  Inputmask({ mask: "99999-999", autoUnmask: true }).mask('[name="cep"]');
+  Inputmask({ mask: "(99) [9]9999-9999", autoUnmask: true, jitMasking: true }).mask('[name="cellphone"]');
+  Inputmask({ mask: "(99) [9]9999-9999", autoUnmask: true, jitMasking: true }).mask('[name="extra-contact"]');
 })();

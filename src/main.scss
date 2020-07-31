@@ -162,6 +162,28 @@ button {
   }
 }
 
+.toast {
+  text-align: justify;
+  border-radius: 8px;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 16px;
+  max-width: 500px;
+  width: 98%;
+  z-index: 9999999999;
+  font-weight: 600;
+  font-size: 16px;
+  &.error {
+    color: #ffffff;
+    background-color: #444444;
+  }
+}
+
+.has-error {
+  border-color: #ef5350 !important;
+}
+
 @media screen and (max-width: 768px) {
   .card {
     margin-top: 120px;
