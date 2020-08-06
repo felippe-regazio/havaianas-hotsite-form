@@ -4,10 +4,10 @@
 Me informe o seu CPF, por favor?"); ?>
     
     <div class="choices">
-      <label for="name">Nome completo</label>
+      <label for="name" required>Nome completo</label>
       <input type="text" autocomplete="off" name="name" required/>
       
-      <label for="cpf">Seu CPF</label>
+      <label for="cpf" required>Seu CPF</label>
       <input type="text" autocomplete="off" name="cpf" required/>
     </div>
 

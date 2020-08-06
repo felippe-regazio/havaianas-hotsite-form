@@ -3,10 +3,10 @@
     <?php ianaSay("Você pode me Informar a data da compra? Se você não lembrar do dia exato, pode colocar uma data aproximada 🙂 Vou precisar também do tamanho do produto"); ?>
     
     <div class="choices">
-      <label for="name">Data da compra</label>
+      <label for="name" required>Data da compra</label>
       <input type="text" autocomplete="off" name="purchase-date" minlength="8" required/>
 
-      <label for="email">Tamanho</label>
+      <label for="email" required>Tamanho</label>
       <input type="text" autocomplete="off" name="product-size" required/>
     </div>
 

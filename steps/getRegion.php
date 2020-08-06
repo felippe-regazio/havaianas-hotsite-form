@@ -3,7 +3,7 @@
     <?php ianaSay("Qual é a tua cidade?"); ?>
     
     <div class="choices">
-      <label for="name">Cidade</label>
+      <label for="name" required>Cidade</label>
       <input type="text" name="city" autocomplete="off" required/>
 
       <label for="name">Estado</label>

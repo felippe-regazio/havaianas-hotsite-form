@@ -3,7 +3,7 @@
     <?php ianaSay("O produto que você gostaria de fazer a reclamação é um:"); ?>
     
     <div class="choices">
-      <label for="name">Qual o produto?</label>
+      <label for="name" required>Qual o produto?</label>
       
       <label>
         <input type="radio" name="which-product" value="Chinelo/Sandália" required>

@@ -3,7 +3,7 @@
     <?php ianaSay("O que aconteceu com o produto?"); ?>
     
     <div class="choices">
-      <label for="name">Descreva o que aconteceu com o produto</label>
+      <label for="name" required>Descreva o que aconteceu com o produto</label>
       <textarea name="what-happened" required></textarea>
     </div>
 

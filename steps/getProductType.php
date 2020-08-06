@@ -3,7 +3,7 @@
     <?php ianaSay("Você pode me dizer o tipo de produto?"); ?>
     
     <div class="choices">
-      <label for="name">Tipo do produto</label>
+      <label for="name" required>Tipo do produto</label>
       
       <label>
         <input type="radio" name="product-type" value="Adulto" required>

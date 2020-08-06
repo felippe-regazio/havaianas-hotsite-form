@@ -3,7 +3,7 @@
     <?php ianaSay("Qual é a sua data de nascimento?"); ?>
     
     <div class="choices">
-      <label for="name">Data de nascimento</label>
+      <label for="name" required>Data de nascimento</label>
       <input type="text" name="birth" autocomplete="off" minlength="8" required/>
     </div>
 

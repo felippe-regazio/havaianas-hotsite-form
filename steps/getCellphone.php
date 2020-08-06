@@ -3,7 +3,7 @@
     <?php ianaSay("Você pode me informar o seu telefone celular, com DDD? (Somente números e sem espaço)"); ?>
     
     <div class="choices">
-      <label for="name">Seu celular</label>
+      <label for="name" required>Seu celular</label>
       <input type="text" name="cellphone" autocomplete="off" required minlength="10"/>
 
       <label for="name">Número de contato secundário</label>

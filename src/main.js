@@ -116,7 +116,11 @@
           input.parentElement.parentElement.style.pointerEvents = 'initial';
         });
     });
-  })  
+  });
+
+  document.querySelectorAll('input, select, textarea').forEach(el => {
+    el.setAttribute('autocomplete', 'off');
+  });
 
   // ------------------------------------------------------------
 

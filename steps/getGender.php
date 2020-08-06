@@ -3,7 +3,7 @@
     <?php ianaSay("Me confirme o seu gênero"); ?>
     
     <div class="choices">
-      <label for="name">Seu gênero</label>
+      <label for="name" required>Seu gênero</label>
       
       <label>
         <input type="radio" name="gender" value="Masculino" required>

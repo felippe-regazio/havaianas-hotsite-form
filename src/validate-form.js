@@ -60,7 +60,7 @@ function validateForm (holder) {
 
     let errors = [];
 
-    holder.querySelectorAll('[required]').forEach(input => {
+    holder.querySelectorAll('[required]:not(label)').forEach(input => {
         if (!input.value.trim()) {
             errors.push('Ops, há campos obrigatórios vazios');
             input.classList.add('has-error');

@@ -3,7 +3,7 @@
     <?php ianaSay("Agora vou precisar do seu e-mail 😉"); ?>
     
     <div class="choices">
-      <label for="email">Seu E-mail</label>
+      <label for="email" required>Seu E-mail</label>
       <input type="email" name="email" required/>
     </div>
 

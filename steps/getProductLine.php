@@ -3,7 +3,7 @@
     <?php ianaSay("O produto é da linha:"); ?>
     
     <div class="choices">
-      <label for="name">Linha do produto</label>
+      <label for="name" required>Linha do produto</label>
       
       <label>
         <input type="radio" name="product-line" value="Masculino" required>
