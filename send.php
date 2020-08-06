@@ -1,20 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Havaianas - Fale com a Iana</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Havaianas - Fale com a Iana</title>
 
-  <link rel="stylesheet" href="vendor/normalize-css/normalize.css">
-  <link rel="stylesheet" href="vendor/swiper/swiper-bundle.min.css">
-  <link rel="stylesheet" href="vendor/milligram/dist/milligram.min.css">
-  <link rel="stylesheet" href="dist/main.css">
-
-  <?php
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-  ?>
+	<link rel="stylesheet" href="vendor/normalize-css/normalize.css">
+	<link rel="stylesheet" href="vendor/swiper/swiper-bundle.min.css">
+	<link rel="stylesheet" href="vendor/milligram/dist/milligram.min.css">
+	<link rel="stylesheet" href="dist/main.css">
 </head>
 <body>
 
@@ -39,10 +33,25 @@
 			</div>
 		</div>
 	</header>
-	<div class="content">
-		<p style="color: #333333; font-weight: 600; margin-bottom: 4px">Processo finalizado com sucesso!</p>
-		<p>A sua solitação foi enviada com sucesso!</p>
-	</div>
+
+	<?php
+
+		require_once __DIR__ . '/functions.php';	
+		
+		if (empty($_REQUEST['email'])) {			
+			showError('Não há endereço de destino ou o endereço não é válido');
+		} else {
+			
+			$USER_EMAIL = $_REQUEST['email'];
+			$EMAIL_CONTENT = getEmailBody($_REQUEST, $_FILES);
+
+			$SEND_EMAIL = sendEmail([ EMAIL_DEFAULT_DESTINY, $USER_EMAIL ], EMAIL_DEFAULT_SUBJECT, $EMAIL_CONTENT);
+			$SEND_EMAIL ? showSuccess() : showError('Erro inesperado ao enviar a solicitação :(');
+		
+		}
+
+	?>
+
 	<footer></footer>
 </body>
 </html>
