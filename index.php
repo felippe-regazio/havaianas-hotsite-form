@@ -9,12 +9,6 @@
   <link rel="stylesheet" href="vendor/swiper/swiper-bundle.min.css">
   <link rel="stylesheet" href="vendor/milligram/dist/milligram.min.css">
   <link rel="stylesheet" href="dist/main.css">
-
-  <?php
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-  ?>
 </head>
 <body>
   
